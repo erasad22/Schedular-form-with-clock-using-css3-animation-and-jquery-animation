@@ -1,0 +1,168 @@
+/*---- variables ------ */
+/*---- mixins ------ */
+/*-----base -----*/
+body {
+  font-family: 'Ubuntu', sans-serif;
+  color: #635C53;
+  background: #fff;
+  font-size: 1.2em;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 600;
+  color: #635C53;
+}
+a {
+  color: #111;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+}
+a:hover {
+  text-decoration: underline;
+  color: #000000;
+}
+a:focus {
+  text-decoration: none;
+}
+p, label {
+  font-size: 1.1654321em;
+  font-weight: 300;
+}
+.align-left
+{
+  text-align: left;
+}
+.align-right {
+  text-align: right;
+}
+.bg-blue-dark {
+  background: #3C75AD !important;
+}
+.color-yellow-dark {
+  color: #DDCB2A !important;
+}
+.none {
+  display: none;
+}
+.margin-top-30
+{
+  margin-top: 30px;
+}
+.select {
+  border: 0;
+  background-color: #4B92D8;
+  color: #fff;
+  padding: 5px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+#header {
+  padding-bottom: 20px;
+}
+.form
+{
+  position: relative;
+  z-index: 99;
+}
+.form .textbox
+{
+  border: 0;
+  border-bottom: 1px solid #ddd;
+  padding: 5px 10px;
+  box-shadow: none;
+  border-radius: 0;
+}
+.time
+{
+  text-align: right;
+}
+.time .textbox
+{
+  width: 22%;
+}
+.form .textbox:focus,
+{
+  border: 0;
+}
+.form label
+{
+  line-height: 29px;
+}
+.main {
+  margin-top: 30px;
+}
+.main h4
+{
+  font-weight: 300;
+  text-transform: uppercase;
+  text-align: center;
+}
+.main .box
+{
+  border: 1px solid #FFAC66;
+  padding: 20px;
+  min-height: 300px;
+}
+.main .box .description
+{
+  text-align: left;
+  border: 1px solid #FF7A08;
+  min-height: 80px;
+  padding: 8px 10px;
+  color: #666;
+  font-size: 0.865432em;
+  width: 100%;
+  position: relative;
+  background: #fff;
+}
+.main .box .lbl-time{
+  margin-top: 20px;
+}
+.main .box .lbl-time span
+{
+  font-weight: 700;
+}
+.form .button
+{
+  width: 100%;
+  background: #FF9F4F !important;
+  color: #fff;
+  transition: all ease-in-out 0.3s;
+}
+.form .button:hover
+{
+  background: #FFAF6C !important;
+}
+.container
+{
+  min-height: 720px;
+  box-shadow: 0 0 4px #C1B6A7;
+  border-top: 5px solid #FFBA80;
+}
+.padding-all
+{
+  padding: 30px 0;
+}
+.padding-less
+{
+  padding: 0 0 0 10px;
+}
+.moveTo { z-index: 11; }
+.timeTo { z-index: 1; }
+.dropdown-menu
+{
+  z-index: 1111 !important;
+}
+
+
+

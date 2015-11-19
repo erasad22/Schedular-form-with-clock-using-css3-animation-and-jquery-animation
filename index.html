@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+	<!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<title>Task</title>
+		
+		<link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.css">
+		<link rel="stylesheet" type="text/css" href="assets/font-awesome/css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="assets/css/animate.css" />
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="assets/css/watch.css" />
+    </head>
+<body>
+<div class="wrapper">
+	<div class="container padding-all">
+		<div class="row">
+		    <div class="col-md-5 col-md-offset-2">
+		    	<div class="form animated zoomIn">
+			    	<div class="form-group">
+			    		<label>Schedule Task</label>
+			    		<input type="text" class="form-control textbox" value="3:00">
+			    	</div>
+			    	<div class="form-group margin-top-30">
+			    		<div class="row">
+				    		<label class="col-md-4">To be done at</label>
+				    		<div class="col-md-8 time">
+				    			<div class='input-group date' id='datetimepicker1'>
+				                    <input type='text' id="done" value="" class="form-control" />
+				                    <span class="input-group-addon">
+				                        <span class="fa fa-clock-o"></span>
+				                    </span>
+				                </div>
+				    		</div>
+			    		</div>
+			    	</div>
+			    	<div class="form-group margin-top-30">
+			    		<div class="row">
+				    		<label class="col-md-4">To be finished at</label>
+				    		<div class="col-md-8 time">
+				    			<div class='input-group date' id='datetimepicker2'>
+				                    <input type='text' id="finished" value="" class="form-control" />
+				                    <span class="input-group-addon">
+				                        <span class="fa fa-clock-o"></span>
+				                    </span>
+				                </div>
+				    		</div>
+			    		</div>
+			    	</div>
+			    	<div class="form-group margin-top-30">
+			    		<div class="col-md-8 col-md-offset-4 padding-less">
+			    		   <button onclick="clickMe()" class="btn button">Click Me</button>
+			    		</div>
+			    	</div>
+		    	</div>
+			</div>
+			<div class="col-md-3 col-md-offset-1">
+				<div id="liveclock" class="outer_face animated zoomIn">
+					<div class="marker oneseven"></div>
+					<div class="marker twoeight"></div>
+					<div class="marker fourten"></div>
+					<div class="marker fiveeleven"></div>
+					<div class="inner_face">
+						<div class="hand hour" style="transform: rotate(315.5deg);"></div>
+						<div class="hand minute" style="transform: rotate(186deg);"></div>
+						<div class="hand second" style="transform: rotate(350.28deg);"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row main">
+			<div class="col-md-3 col-md-offset-2">
+				<h4>IN Progress</h4>
+				<div class="box">
+					<div class="description moveTo animated bounceInUp">
+						<p>Head Description</p>
+						<label class="lbl-time">Time to Complete : <span id="timeToComplete"></span></label>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<h4>Upcoming</h4>
+				<div class="box">
+					<div class="description timeTo animated bounceInUp">
+						<p>Head Description</p>
+						<label class="lbl-time">Time to Start : <span id="timeToStart"></span></label>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<h4>Completed</h4>
+				<div class="box">
+					<div class="description timeCompleted animated bounceInUp">
+						<p>Head Description</p>
+						<label class="lbl-time">Time Completed at : <span id="timeCompletedAt"></span></label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Script file -->
+<script type="text/javascript" src="assets/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery-ui.js"></script>
+<script type="text/javascript" src="assets/js/moment.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker1').datetimepicker({
+            format: 'LT'
+        });
+        $('#datetimepicker2').datetimepicker({
+            format: 'LT'
+        });
+    });
+    function clickMe(){
+    	var interval1 = null;
+		var interval2 = null;
+		var interval3 = null;
+    	var done = $("#done").val();
+    	var finished = $("#finished").val();
+    	if (done != '' && finished != '') {
+    		console.log("asad")
+    		$("#timeToComplete").html(done);
+	    	$("#timeCompletedAt").html(finished);
+	    	$("#timeToStart").html(done);
+
+		    interval3 = setInterval(function () {
+			    $('.moveTo').css({'left': '', 'right': ''}).animate({
+			        'left': '300px'
+			    }, 500);
+			    clearInterval(interval3);
+		    }, 1000);
+
+		    interval1 = setInterval(function () {
+	       	$('.timeTo').css({'left': '', 'right': ''}).animate({
+			        'left': '300px'
+			    }, 500);
+			    clearInterval(interval1);
+		    }, 2000);
+
+		    interval2 = setInterval(function () {
+	       	$('.timeCompleted').css({'top': '', 'bottom': ''}).animate({
+			        'top': '108px'
+			    }, 500);
+			    clearInterval(interval2);
+		    }, 4000);
+	     }else{
+    		alert("Please set the time")
+    	}
+	};
+ </script>
+<script type="text/javascript" src="assets/js/custom.js"></script>
+<script type="text/javascript">
+	var $hands = $('#liveclock div.hand')
+	window.requestAnimationFrame = window.requestAnimationFrame
+	                               || window.mozRequestAnimationFrame
+	                               || window.webkitRequestAnimationFrame
+	                               || window.msRequestAnimationFrame
+	                               || function(f){setTimeout(f, 60)}
+	function updateclock(){
+		var curdate = new Date()
+		var hour_as_degree = ( curdate.getHours() + curdate.getMinutes()/60 ) / 12 * 360
+		var minute_as_degree = curdate.getMinutes() / 60 * 360
+		var second_as_degree = ( curdate.getSeconds() + curdate.getMilliseconds()/1000 ) /60 * 360
+		$hands.filter('.hour').css({transform: 'rotate(' + hour_as_degree + 'deg)' })
+		$hands.filter('.minute').css({transform: 'rotate(' + minute_as_degree + 'deg)' })
+		$hands.filter('.second').css({transform: 'rotate(' + second_as_degree + 'deg)' })
+		requestAnimationFrame(updateclock)
+	}
+	requestAnimationFrame(updateclock)
+</script>
+</body>
+</html>
